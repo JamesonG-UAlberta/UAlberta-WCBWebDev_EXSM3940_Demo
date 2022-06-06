@@ -4,16 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
+import ReduxDemo from './ReduxDemo';
+import reduxDemo from './reducers';
 
-
-const store = createStore();
+// createStore() is the old (deprecated, but simple) way to create a store.
+const store = createStore(reduxDemo);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-
+// store.getState() allows you to get the state of a given store (in this case we have the one).
+// When we want to modify the state, we can do so by invoking dispatch() on the store, and passing an anonymous object with a type as outlined in the reducer specification. (In this case, DOUBLE, TRIPLE, HALF, or ADD)
 root.render(
   <React.StrictMode>
-    <App />
+    <ReduxDemo 
+      value={store.getState()}
+      onDouble={store.dispatch({ type: 'DOUBLE' })}
+      onTriple={store.dispatch({ type: 'TRIPLE' })}
+      onHalf={store.dispatch({ type: 'HALF' })}
+      onAdd={store.dispatch({ type: 'ADD' })} />
   </React.StrictMode>
 );
 

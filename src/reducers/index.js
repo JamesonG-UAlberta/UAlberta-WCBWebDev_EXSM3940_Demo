@@ -1,6 +1,9 @@
+// In this case, 0 becomes the initialized state (starting value).
 export default (state = 0, action) => {
     let newState = state;
-    switch (action.type)
+    // These values represent pre-allocated actions to perform on the state.
+    // These would be things you do commonly that it would be annoying to type out anonymous methods for every time you do them.
+    switch (String(action.type).toUpperCase().trim())
     {
         case 'DOUBLE':
             newState *= 2;
