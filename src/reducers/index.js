@@ -3,8 +3,7 @@ export default (state = 0, action) => {
     let newState = state;
     // These values represent pre-allocated actions to perform on the state.
     // These would be things you do commonly that it would be annoying to type out anonymous methods for every time you do them.
-    switch (String(action.type).toUpperCase().trim())
-    {
+    switch (String(action.type).toUpperCase().trim()) {
         case 'DOUBLE':
             newState *= 2;
             break;
@@ -16,6 +15,9 @@ export default (state = 0, action) => {
             break;
         case 'ADD':
             newState++;
+            break;
+        case 'SUBTRACT':
+            newState--;
             break;
         // Default will return current state because it was initialized to it.
     }

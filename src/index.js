@@ -21,7 +21,8 @@ function renderListener() {
       onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}
       onTriple={()=>{store.dispatch({ type: 'TRIPLE' })}}
       onHalf={()=>{store.dispatch({ type: 'HALF' })}}
-      onAdd={()=>{store.dispatch({ type: 'ADD' })}} />
+      onAdd={()=>{store.dispatch({ type: 'ADD' })}} 
+      onSubtract={()=>{store.dispatch({ type: 'SUBTRACT' })}} />
   </React.StrictMode>
 );
   }
