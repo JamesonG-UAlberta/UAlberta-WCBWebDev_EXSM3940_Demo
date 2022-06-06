@@ -19,5 +19,6 @@ export default (state = 0, action) => {
             break;
         // Default will return current state because it was initialized to it.
     }
+    console.log(newState);
     return newState;
 };

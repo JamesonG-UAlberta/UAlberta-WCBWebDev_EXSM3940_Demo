@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
+import { useSelector } from 'react-redux';
 import ReduxDemo from './ReduxDemo';
 import reduxDemo from './reducers';
 
@@ -13,18 +14,23 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // store.getState() allows you to get the state of a given store (in this case we have the one).
 // When we want to modify the state, we can do so by invoking dispatch() on the store, and passing an anonymous object with a type as outlined in the reducer specification. (In this case, DOUBLE, TRIPLE, HALF, or ADD)
-root.render(
+function renderApp() {
+  root.render(
   <React.StrictMode>
     <ReduxDemo 
       value={store.getState()}
-      onDouble={store.dispatch({ type: 'DOUBLE' })}
-      onTriple={store.dispatch({ type: 'TRIPLE' })}
-      onHalf={store.dispatch({ type: 'HALF' })}
-      onAdd={store.dispatch({ type: 'ADD' })} />
+      onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}
+      onTriple={()=>{store.dispatch({ type: 'TRIPLE' })}}
+      onHalf={()=>{store.dispatch({ type: 'HALF' })}}
+      onAdd={()=>{store.dispatch({ type: 'ADD' })}} />
   </React.StrictMode>
 );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+renderApp();
+store.subscribe(renderApp);
