@@ -17,12 +17,9 @@ function renderListener() {
   root.render(
   <React.StrictMode>
     <ReduxDemo 
-      value={store.getState()}
-      onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}
-      onTriple={()=>{store.dispatch({ type: 'TRIPLE' })}}
-      onHalf={()=>{store.dispatch({ type: 'HALF' })}}
-      onAdd={()=>{store.dispatch({ type: 'ADD' })}} 
-      onSubtract={()=>{store.dispatch({ type: 'SUBTRACT' })}} />
+      items={store.getState()}
+      onAdd={(callbackItem)=>{store.dispatch({ type: 'ADD', newItem: callbackItem })}}
+      onSort={()=>{store.dispatch({ type: 'SORT' })}} />
   </React.StrictMode>
 );
   }

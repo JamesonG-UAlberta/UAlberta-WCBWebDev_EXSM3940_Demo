@@ -4,13 +4,10 @@ class ReduxDemo extends Component {
     render() {
         return (
             <div>
-                <br />
-                <p>{this.props.value}</p>
-                <button onClick={this.props.onDouble}>*2</button>
-                <button onClick={this.props.onTriple}>*3</button>
-                <button onClick={this.props.onHalf}>/2</button>
-                <button onClick={this.props.onAdd}>+1</button>
-                <button onClick={this.props.onSubtract}>-1</button>
+                <ul>{this.props.items.map(x => <li key={x}>{x}</li>)}</ul>
+                <input ref={thisNode => this.inputField = thisNode} type="text"></input>
+                <button onClick={() => {this.props.onAdd(this.inputField.value.trim())}}>Add</button>
+                <button onClick={this.props.onSort}>Sort</button>
             </div>
         );
     }
