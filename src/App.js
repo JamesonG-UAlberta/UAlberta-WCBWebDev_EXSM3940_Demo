@@ -19,7 +19,11 @@ function App() {
         </nav>
       </header>
       <main>
-
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/info" component={Info} />
+          <Route path="/details" component={Details} />
+        </Switch>
       </main>
     </div>
   );
