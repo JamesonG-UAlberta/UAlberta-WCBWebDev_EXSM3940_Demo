@@ -3,7 +3,7 @@ import './App.css';
 import Info from './pages/Info';
 import Home from './pages/Home';
 import Details from './pages/Details';
-import { Redirect, Link, Route, Switch } from 'react-router-dom';
+import { Routes, Link, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -19,11 +19,11 @@ function App() {
         </nav>
       </header>
       <main>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/info" component={Info} />
-          <Route path="/details" component={Details} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/details" element={<Details />} />
+        </Routes>
       </main>
     </div>
   );
