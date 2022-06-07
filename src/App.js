@@ -10,7 +10,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Router Demo</h1>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/info">Info</Link></li>
+            <li><Link to="/details">Details</Link></li>
+          </ul>
+        </nav>
       </header>
+      <main>
+
+      </main>
     </div>
   );
 }
