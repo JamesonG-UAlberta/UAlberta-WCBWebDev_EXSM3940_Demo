@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< HEAD
 import { createStore } from 'redux';
 import ReduxDemo from './ReduxDemo';
 import reduxDemo from './reducers';
+=======
+import { BrowserRouter } from 'react-router-dom';
+>>>>>>> demo-02-router
 
 // createStore() is the old (deprecated, but simple) way to create a store.
 const store = createStore(reduxDemo);
@@ -16,6 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 function renderListener() {
   root.render(
   <React.StrictMode>
+<<<<<<< HEAD
     <ReduxDemo 
       value={store.getState()}
       onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}
@@ -23,6 +28,11 @@ function renderListener() {
       onHalf={()=>{store.dispatch({ type: 'HALF' })}}
       onAdd={()=>{store.dispatch({ type: 'ADD' })}} 
       onSubtract={()=>{store.dispatch({ type: 'SUBTRACT' })}} />
+=======
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+>>>>>>> demo-02-router
   </React.StrictMode>
 );
   }
