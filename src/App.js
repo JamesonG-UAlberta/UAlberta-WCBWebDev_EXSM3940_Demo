@@ -5,9 +5,10 @@ import Home from './pages/Home';
 import Details from './pages/Details';
 import People from './pages/People';
 import ToDo from './pages/ToDo';
+import ReduxDemo from './ReduxDemo';
 import { Routes, Link, Route } from 'react-router-dom';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -25,8 +26,14 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/info" element={<Info />} />
-          <Route path="/details" element={<Details />} />
+          <Route path="/info" element={<Info counter={props.counterValue}/>} />
+          <Route path="/details" element={<ReduxDemo 
+              value={props.reduxStore.getState()}
+              onDouble={()=>{props.reduxStore.dispatch({ type: 'DOUBLE' })}}
+              onTriple={()=>{props.reduxStore.dispatch({ type: 'TRIPLE' })}}
+              onHalf={()=>{props.reduxStore.dispatch({ type: 'HALF' })}}
+              onAdd={()=>{props.reduxStore.dispatch({ type: 'ADD' })}} 
+              onSubtract={()=>{props.reduxStore.dispatch({ type: 'SUBTRACT' })}} />} />
           <Route path="/people" element={<People />} />
           <Route path="/todo" element={<ToDo />} />
         </Routes>

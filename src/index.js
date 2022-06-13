@@ -6,6 +6,7 @@ import { createStore } from 'redux';
 import ReduxDemo from './ReduxDemo';
 import reduxDemo from './reducers';
 import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
 // createStore() is the old (deprecated, but simple) way to create a store.
 const store = createStore(reduxDemo);
@@ -17,15 +18,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 function renderListener() {
   root.render(
   <React.StrictMode>
-    <ReduxDemo 
+    <BrowserRouter>
+      <App reduxStore={store} counterValue={store.getState()}/>
+      <ReduxDemo 
       value={store.getState()}
       onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}
       onTriple={()=>{store.dispatch({ type: 'TRIPLE' })}}
       onHalf={()=>{store.dispatch({ type: 'HALF' })}}
       onAdd={()=>{store.dispatch({ type: 'ADD' })}} 
       onSubtract={()=>{store.dispatch({ type: 'SUBTRACT' })}} />
-    <BrowserRouter>
-      <App />
     </BrowserRouter>
   </React.StrictMode>
 );
