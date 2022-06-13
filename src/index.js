@@ -19,7 +19,7 @@ function renderListener() {
   root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App reduxStore={store} counterValue={store.getState()}/>
+      <App reduxStore={store}/>
       <ReduxDemo 
       value={store.getState()}
       onDouble={()=>{store.dispatch({ type: 'DOUBLE' })}}

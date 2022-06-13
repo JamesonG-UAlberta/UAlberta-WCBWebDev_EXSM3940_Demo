@@ -26,7 +26,7 @@ function App(props) {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/info" element={<Info counter={props.counterValue}/>} />
+          <Route path="/info" element={<Info counter={props.reduxStore.getState()}/>} />
           <Route path="/details" element={<ReduxDemo 
               value={props.reduxStore.getState()}
               onDouble={()=>{props.reduxStore.dispatch({ type: 'DOUBLE' })}}
